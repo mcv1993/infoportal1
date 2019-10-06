@@ -10,6 +10,25 @@
   </head>
 
   <body>
+<nav>
+  Navigation
+  <% if sa_signed_in? %>
+    <%= link_to 'Log Out', destroy_sa_session_path, method: :delete %>
+  <% end %>
+
+   <% if admin_signed_in? %>
+    <%= link_to 'Log Out', destroy_admin_session_path, method: :delete %>
+  <% end %>
+
+   <% if tech_signed_in? %>
+    <%= link_to 'Log Out', destroy_tech_session_path, method: :delete %>
+  <% end %>
+
+</nav>
+
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+
     <%= yield %>
   </body>
 </html>
